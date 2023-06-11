@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Refer: https://coolors.co/palettes/trending -->
+    <gradient
+        android:angle="45"
+        android:centerColor="#f9eae1"
+        android:endColor="#cc8b86"
+        android:startColor="#f4f3ee"
+        android:type="linear" />
+</shape>
