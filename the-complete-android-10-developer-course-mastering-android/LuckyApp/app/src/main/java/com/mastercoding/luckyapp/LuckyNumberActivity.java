@@ -16,6 +16,7 @@ public class LuckyNumberActivity extends AppCompatActivity {
 
     TextView welcomeTxt, luckyNumberTxt;
     Button share_btn;
+    Button back_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,7 @@ public class LuckyNumberActivity extends AppCompatActivity {
         welcomeTxt = findViewById(R.id.textView2);
         luckyNumberTxt = findViewById(R.id.lucky_number_txt);
         share_btn = findViewById(R.id.share_number_btn);
+        back_btn = findViewById(R.id.back_btn);
 
 
         // Username
@@ -34,7 +36,7 @@ public class LuckyNumberActivity extends AppCompatActivity {
         // Random Number Generated
         int random_Num = generateRandomNumber();
 
-        luckyNumberTxt.setText(""+random_Num);
+        luckyNumberTxt.setText("" + random_Num);
 
         share_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,11 +44,20 @@ public class LuckyNumberActivity extends AppCompatActivity {
                 shareData(userName, random_Num);
             }
         });
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(),
+                        MainActivity.class);
+                savedInstanceState.putString("name", userName);
+                startActivity(i);;
+            }
+        });
 
 
     }
 
-    public int generateRandomNumber(){
+    public int generateRandomNumber() {
 
         Random random = new Random();
         int upper_limit = 1000;
@@ -56,7 +67,7 @@ public class LuckyNumberActivity extends AppCompatActivity {
     }
 
 
-    public void shareData(String username, int randomNum){
+    public void shareData(String username, int randomNum) {
 
         // Implicit Intents
         Intent i = new Intent(Intent.ACTION_SEND);
@@ -65,15 +76,14 @@ public class LuckyNumberActivity extends AppCompatActivity {
         // convert the int to string
         String number = String.valueOf(randomNum);
 
-        i.putExtra(Intent.EXTRA_SUBJECT, username + " got lucky today!" );
-        i.putExtra(Intent.EXTRA_TEXT,  "His lucky number is: "+  number);
+        i.putExtra(Intent.EXTRA_SUBJECT, username + " got lucky today!");
+        i.putExtra(Intent.EXTRA_TEXT, "His lucky number is: " + number);
 
 
-        startActivity(Intent.createChooser(i,"Choose a platform"));
+        startActivity(Intent.createChooser(i, "Choose a platform"));
 
 
     }
-
 
 
 }

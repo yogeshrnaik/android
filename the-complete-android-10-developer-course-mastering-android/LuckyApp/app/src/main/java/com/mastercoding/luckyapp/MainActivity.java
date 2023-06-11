@@ -24,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
         editText = findViewById(R.id.editText);
         btn = findViewById(R.id.btn);
 
+        String username = savedInstanceState != null ? savedInstanceState.getString("username") : null;
+        if (username  != null) {
+            editText.setText(username);
+        }
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                         LuckyNumberActivity.class);
 
                 // passing the name to second activity
-                i.putExtra("name",user_name);
+                i.putExtra("name", user_name);
 
                 startActivity(i);
 
