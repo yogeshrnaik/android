@@ -5,6 +5,8 @@ import androidx.fragment.app.DialogFragment;
 
 import android.app.Dialog;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -46,9 +48,8 @@ public class MainActivity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup radioGroup, int checked) {
                 RadioButton radioButton = findViewById(checked);
                 Toast.makeText(MainActivity.this,
-                        "Selected: "+radioButton.getText(),
+                        "Selected: " + radioButton.getText(),
                         Toast.LENGTH_LONG).show();
-
 
 
             }
@@ -73,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 Toast.makeText(MainActivity.this,
-                        "You Select: "+courses[i],
+                        "You Select: " + courses[i],
                         Toast.LENGTH_SHORT).show();
             }
 
@@ -84,16 +85,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
-
-
         // Time Picker
         b2 = findViewById(R.id.button2);
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Display the time picker
-                DialogFragment  timePickerFrag =
+                DialogFragment timePickerFrag =
                         new TimePickerFragment();
 
                 timePickerFrag.show(
@@ -124,14 +122,7 @@ public class MainActivity extends AppCompatActivity {
         // Progress bar
         ProgressBar progressBar = findViewById(R.id.progressBar);
         progressBar.setProgress(75);
-      //  progressBar.incrementProgressBy()
-
-
-
-
-
-
-
+        //  progressBar.incrementProgressBy()
 
 
         btn = findViewById(R.id.btn);
@@ -142,30 +133,30 @@ public class MainActivity extends AppCompatActivity {
                 progressBar.incrementProgressBy(10);
 
 
-
-
-
-                if (box1.isChecked()){
+                if (box1.isChecked()) {
                     Toast.makeText(MainActivity.this,
                             "Cheese Topping is added", Toast.LENGTH_SHORT).show();
-                }else{
+                } else {
 
                 }
 
-                if (box2.isChecked()){
+                if (box2.isChecked()) {
                     Toast.makeText(MainActivity.this,
                             "Tomato Topping is added", Toast.LENGTH_SHORT).show();
-                }else{
+                } else {
 
                 }
             }
         });
 
 
-
-
-
-
-
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.my_menu, menu);
+        return true;
+    }
+
 }
