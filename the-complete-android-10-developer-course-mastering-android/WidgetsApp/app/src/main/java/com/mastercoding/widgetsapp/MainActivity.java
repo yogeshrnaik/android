@@ -50,24 +50,15 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this,
                         "Selected: " + radioButton.getText(),
                         Toast.LENGTH_LONG).show();
-
-
             }
         });
 
 
         // Spinner
         spinner = findViewById(R.id.spinner);
-
         String[] courses = {"C++", "Java", "Kotlin", "Data Structures"};
-
-        ArrayAdapter ad = new ArrayAdapter(this,
-                android.R.layout.simple_spinner_item,
-                courses);
-
-        ad.setDropDownViewResource(
-                android.R.layout.simple_spinner_dropdown_item);
-
+        ArrayAdapter ad = new ArrayAdapter(this, android.R.layout.simple_spinner_item, courses);
+        ad.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(ad);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -91,15 +82,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Display the time picker
-                DialogFragment timePickerFrag =
-                        new TimePickerFragment();
-
+                DialogFragment timePickerFrag = new TimePickerFragment();
                 timePickerFrag.show(
                         getSupportFragmentManager(),
                         "Pick Time Now:"
                 );
-
-
             }
         });
 
@@ -108,9 +95,7 @@ public class MainActivity extends AppCompatActivity {
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DialogFragment dialogFragment =
-                        new DatePickerFragment();
-
+                DialogFragment dialogFragment = new DatePickerFragment();
                 dialogFragment.show(
                         getSupportFragmentManager(),
                         "Pick A Date"
