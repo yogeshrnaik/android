@@ -15,10 +15,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void SayTheColor(View view){
-
+    public void SayTheColor(View view) {
         Button clicked_btn = (Button) view;
-
         MediaPlayer mediaPlayer = MediaPlayer.create(
                 this,
                 getResources().getIdentifier(
@@ -28,8 +26,5 @@ public class MainActivity extends AppCompatActivity {
                 )
         );
         mediaPlayer.start();
-
-
-
     }
 }
